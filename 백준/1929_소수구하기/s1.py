@@ -2,7 +2,6 @@ import sys
 sys.stdin = open('input.txt')
 
 M, N = map(int, input().split())
-M, N = 1, 100
 
 if M < 3:
     print(2)
@@ -29,3 +28,11 @@ else:
                 break
         if not temp:
             print(num)
+
+'''
+[2씩 증가하며 검사]
+-> 연산량 1/2 만큼 줄일 수 있다.
+
+시작하는 수(M)가 홀수/짝수인 경우로 나눠, 마지막 수(N)까지 홀수만 세며 소수인지 검사
+
+'''
