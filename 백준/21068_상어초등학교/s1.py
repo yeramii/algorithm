@@ -1,6 +1,5 @@
 """
 Runtime Error
-푸는 중 ㅠㅠ
 """
 
 import sys
