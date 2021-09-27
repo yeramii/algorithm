@@ -17,8 +17,10 @@ for tc in range(1, T + 1):
                 print(cnt)
                 break
             else:
-                points.pop(0)
-                checks.pop(0)
+                # points.pop(0)
+                # checks.pop(0)
+                del points[0]
+                del checks[0]
 
         else:
             points.append(points.pop(0))
