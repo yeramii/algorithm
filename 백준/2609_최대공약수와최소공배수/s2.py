@@ -3,7 +3,7 @@
     - 최대공약수 (Greatest Common Divisor) : a & b의 최대 공약수는 b & a를 b로 나눈 나머지의 최대 공약수
         . from math import gcd
     - 최소공배수 (Least Common Multiple) : a와 b의 곱을 a와 b의 최대 공약수로 나눈 값
-        . from math import lcd
+        . from math import lcm
 """
 import sys
 sys.stdin = open("input.txt")
