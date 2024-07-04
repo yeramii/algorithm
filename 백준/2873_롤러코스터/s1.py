@@ -1,5 +1,6 @@
 """
-Fail - 메모리 초과
+s1 - Pass : 69776KB 584ms
+s2 - Fail : 시간 초과 (dfs 사용)
 """
 import sys
 sys.setrecursionlimit(10 ** 6)
@@ -8,34 +9,40 @@ sys.stdin = open("input.txt")
 R, C = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(R)]
 
-def get_score(score, r, c, direc):
-    global tmp_max, tmp_direc
-
-    if r == R-1 and c == C-1:
-        if score > tmp_max:
-            tmp_max = score
-            tmp_direc = direc
-            return
-    for k in range(4):
-        rr = r + dr[k]
-        cc = c + dc[k]
-        if rr not in range(R) or cc not in range(C): continue
-        if visited[rr][cc]: continue
-        visited[rr][cc] = 1
-        get_score(score+arr[rr][cc], rr, cc, direc+dk[k])
-        visited[rr][cc] = 0
-
 if not R % 2 and not C % 2:
-    # 현재는 dfs. 최적화 필요 !! (메모리 초과 ㅠ)
-    visited = [[0] * C for _ in range(R)]
-    dk = ["D", "U", "R", "L"]
-    dr = [1, -1, 0, 0]
-    dc = [0, 0, 1, -1]
-    tmp_max = 0
-    tmp_direc = ""
-    visited[0][0] = 1
-    get_score(arr[0][0], 0, 0, "")
-    print(tmp_direc)
+    # 안 갈 좌표 : tmp_r, tmp_c
+    tmp_min = 1000
+    tmp_r = -1
+    tmp_c = -1
+    for r in range(R):
+        for c in range(C):
+            if (r + c) % 2 and arr[r][c] < tmp_min:
+                tmp_min = arr[r][c]
+                tmp_r = r
+                tmp_c = c
+    # mid : 안 갈 좌표가 포함된 2개 행의 경로
+    # be, af : 안 갈 좌표가 포함되지 않은 2개 행의 경로 중 mid 행의 전, 후
+    be = "R"*(C-1) + "D" + "L"*(C-1)
+    af = "L"*(C-1) + "D" + "R"*(C-1)
+    if not tmp_r % 2:
+        mid = "D" + "RURD"*(C//2-1)
+        cidx = 4 * (tmp_c // 2)
+        mid = mid[:cidx+1] + "R" + mid[cidx+1:]
+    else:
+        mid = "DRUR"*(C//2-1) + "D"
+        cidx = 4 * (tmp_c // 2)
+        mid = mid[:cidx] + "R" + mid[cidx:]
+    ans = ""
+    for i in range(R//2):
+        if i < tmp_r//2:
+            ans += be
+        elif i == tmp_r//2:
+            ans += mid
+        else:
+            ans += af
+        if i != R//2-1:
+            ans += "D"
+    print(ans)
 else:
     if R % 2:
         print("R"*(C-1) + ("D" + "L"*(C-1) + "D" + "R"*(C-1)) * (R//2))
