@@ -1,3 +1,6 @@
+"""
+Fail - 막구현한 오류 덩어리
+"""
 F, S, G, U, D = map(int, input().split())
 def find_ans():
     if S == G:
