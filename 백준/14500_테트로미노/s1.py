@@ -1,12 +1,16 @@
 """
-Pass - 38008KB 4440ms
+Pass
+dfs       - 38008KB 4440ms
++ pruning - 39028KB 312ms
 
 알고리즘을 쓰는데 한계가 있어서 막구현과 dfs알고리즘을 섞어 씀
++ mas
 
 s2) dfs로는 커버못하는 case 때문에 막구현으로 했다가 12%에서 실패
     -> if 문 많이 쓰다가 실수 나온듯. but 찾기 힘듬 ㅠ
 s1) dfs와 막구현 case를 나눔
     -> dfs로 안되는 4가지 case만 막구현
+        + max value 이용하여 pruning(가지치기)
 """
 import sys
 sys.stdin = open("input.txt")
