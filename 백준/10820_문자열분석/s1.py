@@ -1,7 +1,7 @@
 """
 Pass
     1) input()으로 한 줄씩 받기 - 31120KB 56ms
-    2) readlines()으로 한 번에 받기 (s2.py) - 31120KB 48ms
+    2) readlines()으로 한 번에 받기 (s1.py) - 31120KB 48ms
 """
 import sys
 sys.stdin = open("input.txt")
