@@ -1,7 +1,7 @@
 """
 Pass - 31252KB 44ms
 
-ord, chr 안 쓰고도 할 수 있음 -> s2.py
+ord, chr 안 쓰고도 할 수 있음 -> s1.py
 """
 import sys
 sys.stdin = open("input.txt")
