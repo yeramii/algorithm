@@ -1,7 +1,7 @@
 """
 Pass
     1) 일정 크기 list에 front/rear 사용 - 31120KB 48ms
-    2) deque() 사용 (s2.py) - 34072KB 76ms
+    2) deque() 사용 (s1.py) - 34072KB 76ms
 """
 import sys
 sys.stdin = open("input.txt")

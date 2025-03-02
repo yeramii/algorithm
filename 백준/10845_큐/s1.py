@@ -2,7 +2,7 @@
 Pass
     1) 빈 list에 append(), pop(0) 사용 - 31120KB, 48ms
     2) deque 사용 - 34044KB 72ms
-    3) 일정 크기 list에 front/rear 사용 (s2.py) - 31120KB 52ms
+    3) 일정 크기 list에 front/rear 사용 (s1.py) - 31120KB 52ms
 
 - input() 대신 sys.stdin.readline() 사용 !!
 """
